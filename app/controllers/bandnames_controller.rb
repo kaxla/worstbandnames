@@ -19,6 +19,19 @@ def show
   @bandname = Bandname.find(params[:id])
 end
 
+def edit
+  @bandname = Bandname.find(params[:id])
+end
+
+def update
+  @bandname = Bandname.find(params[:id])
+  if @bandname.update(bandname_params)
+    redirect_to @bandname
+  else
+    render :edit
+  end
+end
+
 def index
   @bandnames = Bandname.all
 end
