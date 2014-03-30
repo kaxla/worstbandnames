@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 20140321002306) do
   enable_extension "plpgsql"
 
   create_table "bandnames", force: true do |t|
+    t.string   "name"
+    t.string   "submitter"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
