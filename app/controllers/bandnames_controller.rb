@@ -16,6 +16,7 @@ def create
 end
 
 def show
+  @bandname = Bandname.find(params[:id])
 end
 
 def index
