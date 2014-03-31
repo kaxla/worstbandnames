@@ -2,3 +2,4 @@
 <p>Submitted by: <%= @bandname.submitter %></p>
 <%= link_to 'Delete', bandname_path(@bandname), method: :delete, data: {confirm: 'Are You Sure?'} %>
 <%= link_to "Edit", edit_bandname_path(:bandname_id) %>
+<%= link_to "Back", bandnames_path %>
