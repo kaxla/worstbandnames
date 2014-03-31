@@ -1,18 +1,3 @@
 <h1>Band Names</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Submitter</th>
-    </tr>
-  </thead>
-  <tbody>
-
-<% @bandnames.each do |bandname| %>
-  <td><%= bandname.name %></td>
-  <td><%= bandname.submitter %></td>
-  <td><%= link_to 'Show', bandname %></td>
-  <td><%= link_to 'Edit', edit_bandname_path(bandname) %> </td>
-  <td><%= link_to 'Delete', bandname_path(bandname), method: :delete, data: {confirm: 'Are You Sure?'} %></td>
-<% end %>
+<%= render "index" %>
