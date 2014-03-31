@@ -1,5 +1,5 @@
 class BandnamesController < ApplicationController
-
+before_action :set_bandname, only: [:show, :edit, :update, :destroy]
 def new
   @bandname = Bandname.new
 end
@@ -16,20 +16,22 @@ def create
 end
 
 def show
-  @bandname = Bandname.find(params[:id])
 end
 
 def edit
-  @bandname = Bandname.find(params[:id])
 end
 
 def update
-  @bandname = Bandname.find(params[:id])
   if @bandname.update(bandname_params)
     redirect_to @bandname
   else
     render :edit
   end
+end
+
+def destroy
+  @bandname.destroy
+  redirect_to bandnames_path
 end
 
 def index
@@ -40,6 +42,10 @@ private
 
 def bandname_params
   params.require(:bandname).permit(:name)
+end
+
+def set_bandname
+  @bandname = Bandname.find(params[:id])
 end
 
 end
