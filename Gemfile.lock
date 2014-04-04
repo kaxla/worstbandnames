@@ -163,7 +163,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
-  cancancan
+  cancancan (~> 1.7)
   coffee-rails (~> 4.0.0)
   devise
   figaro

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'coffee-rails', '~> 4.0.0'
-gem 'cancancan'
+gem 'cancancan', '~> 1.7'
 gem 'devise'
 gem 'figaro'
 gem 'jbuilder', '~> 1.2'
