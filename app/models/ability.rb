@@ -4,12 +4,13 @@ class Ability
   def initialize(user)
     user ||= User.new
     if user.admin?
-        can :manage, :all?
+        can :manage, :all
     elsif user.user?
         can :create, Bandname
         can :edit, Bandname, :approved => true, :user_id => user.id
         can :destroy, Bandname, :approved => true, :user_id => user.id
         can :read, Bandname, :approved => true
+        can :upvote, Bandname
     else
         can :read, Bandname, :approved => true
     end

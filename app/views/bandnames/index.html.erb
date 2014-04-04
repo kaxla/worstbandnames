@@ -1,6 +1,7 @@
 <h1>Band Names</h1>
 
-<%= link_to 'Submit Bandname', new_bandname_path %>
-
+<% if can? :create, Bandname %>
+  <%= link_to 'Submit Bandname', new_bandname_path %>
+<% end %>
 
 <%= render "index" %>

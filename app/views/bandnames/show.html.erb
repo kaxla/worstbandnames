@@ -1,5 +1,9 @@
 <p>Bandname: <%= @bandname.name %></p>
 <p>Submitted by: <%= @bandname.submitter %></p>
-<%= link_to 'Delete', bandname_path(@bandname), method: :delete, data: {confirm: 'Are You Sure?'} %>
-<%= link_to "Edit", edit_bandname_path(:bandname_id) %>
+<% if can? :destroy, Bandname %>
+  <%= link_to 'Delete', bandname_path(@bandname), method: :delete, data: {confirm: 'Are You Sure?'} %>
+<% end %>
+<% if can? :edit, Bandname %>
+  <%= link_to "Edit", edit_bandname_path(:bandname_id) %>
+<% end %>
 <%= link_to "Back", bandnames_path %>

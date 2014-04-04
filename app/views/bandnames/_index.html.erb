@@ -12,9 +12,15 @@
     <td><%= bandname.name %></td>
     <td><%= bandname.submitter %></td>
     <td><%= pluralize(bandname.votes.count, "vote") %></td>
-    <td><%= button_to "+1", upvote_bandname_path(bandname), method: :post %></td>
+    <% if can? :upvote, Bandname %>
+      <td><%= button_to "+1", upvote_bandname_path(bandname), method: :post %></td>
+    <% end %>
     <td><%= link_to 'Show', bandname %></td>
-    <td><%= link_to 'Edit', edit_bandname_path(bandname) %> </td>
-    <td><%= link_to 'Delete', bandname_path(bandname), method: :delete, data: {confirm: 'Are You Sure?'} %></td>
+    <% if can? :edit, Bandname %>
+      <td><%= link_to 'Edit', edit_bandname_path(bandname) %> </td>
+    <% end %>
+    <% if can? :destroy, Bandname %>
+      <td><%= link_to 'Delete', bandname_path(bandname), method: :delete, data: {confirm: 'Are You Sure?'} %></td>
+    <% end %>
   </tr>
 <% end %>

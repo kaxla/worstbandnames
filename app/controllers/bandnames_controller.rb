@@ -1,5 +1,7 @@
 class BandnamesController < ApplicationController
 before_action :set_bandname, only: [:show, :edit, :update, :destroy, :upvote]
+load_and_authorize_resource
+
   def new
     @bandname = Bandname.new
   end
@@ -35,7 +37,6 @@ before_action :set_bandname, only: [:show, :edit, :update, :destroy, :upvote]
   end
 
   def index
-    @bandnames = Bandname.all
   end
 
   def upvote
